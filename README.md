@@ -1,4 +1,4 @@
-# **Plugin Name** Plugin
+# **Custom Group Banner** Plugin
 
 **Plugin Summary**
 

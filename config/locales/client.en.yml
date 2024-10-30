@@ -3,7 +3,7 @@ en:
     admin:
       site_settings:
         categories:
-          TODO_plugin_name: "Plugin Name"
+          custom_group_banner: "Custom Group Banner"
   js:
-    discourse_plugin_name:
+    custom_group_banner:
       placeholder: placeholder
