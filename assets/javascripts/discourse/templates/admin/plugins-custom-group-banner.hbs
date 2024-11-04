@@ -40,7 +40,7 @@
               <Input
                 @type="checkbox"
                 @checked={{banner.dismissable}}
-                @input={{fn this.updateBanner index "dismissable"}}
+                {{on "change" (fn this.updateBannerDismissable index)}}
               />
               Dismissable
             </label>

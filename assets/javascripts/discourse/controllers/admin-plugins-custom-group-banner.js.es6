@@ -30,7 +30,6 @@ export default class AdminPluginsCustomGroupBannerController extends Controller 
     try {
       const groups = await this.store.findAll('group');
       this.groups = groups.toArray();
-      console.log(this.groups);
     } catch (error) {
     }
   }
@@ -114,6 +113,9 @@ export default class AdminPluginsCustomGroupBannerController extends Controller 
 
   @action
   async updateBanner(index, field, value) {
+  console.log(this.banners);
+  console.log(field);
+  console.log(value);
     const updatedBanners = [...this.banners];
     updatedBanners[index] = {
       ...updatedBanners[index],
@@ -121,6 +123,13 @@ export default class AdminPluginsCustomGroupBannerController extends Controller 
     };
     this.banners = updatedBanners;
     await this._updateSetting();
+  }
+
+  @action
+  updateBannerDismissable(index, event) {
+    if (event.target !== undefined) {
+      this.updateBanner(index, "dismissable", event.target.checked);
+    }
   }
 
   async _updateSetting() {
