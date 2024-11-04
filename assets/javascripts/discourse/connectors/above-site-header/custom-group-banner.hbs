@@ -3,7 +3,7 @@
     <div class="banner-message cooked">{{this.currentBanner.message}}</div>
     {{#if this.currentBanner.dismissable}}
     <div>
-      <button class="btn btn-text btn-default btn-flat" {{on "click" this.dismissBanner}}>
+      <button type="button" class="btn btn-text btn-default btn-flat" {{on "click" this.dismissBanner}}>
         {{i18n "custom_group_banner.dismiss"}}
       </button>
       </div>

@@ -31,7 +31,6 @@ export default class AdminPluginsCustomGroupBannerController extends Controller 
       const groups = await this.store.findAll('group');
       this.groups = groups.toArray();
     } catch (error) {
-      console.error("Failed to load groups:", error);
     }
   }
 
@@ -49,7 +48,9 @@ export default class AdminPluginsCustomGroupBannerController extends Controller 
 
   _deserializeConfig() {
     const config = this.siteSettings.custom_group_banner_config;
-    if (!config) return [];
+    if (!config) {
+        return [];
+    }
 
     return config.split(/(?<!\\)\|/).map((entry) => {
       const [id, group, message, dismissable, className] = entry
@@ -103,7 +104,6 @@ export default class AdminPluginsCustomGroupBannerController extends Controller 
         data: { banner_keys: [bannerToRemove.id] }
       });
     } catch (error) {
-      console.error("Failed to remove banner:", error);
       this.banners = this._deserializeConfig();
     }
   }
