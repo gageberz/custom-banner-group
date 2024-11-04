@@ -1,4 +1,9 @@
-custom_group_banner:
+plugins:
   custom_group_banner_enabled:
     default: false
     client: true
+  custom_group_banner_config:
+    default: "staff,Welcome to the staff team!,true,info-banner|trust_level_4,You're a trusted user,true,success-banner"
+    client: true
+    type: list
+    description: "Format: group_name,message,dismissable(true/false),css_class | next_banner_config"

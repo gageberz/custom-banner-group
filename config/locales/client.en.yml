@@ -1,9 +1,9 @@
 en:
-  admin_js:
-    admin:
-      site_settings:
-        categories:
-          custom_group_banner: "Custom Group Banner"
+  site_settings:
+    custom_group_banner_enabled: ""
+    custom_group_banner: "Custom Group Banner"
   js:
     custom_group_banner:
-      placeholder: placeholder
+      title: "Custom Group Banner"
+      show: "Show Custom Group Banner"
+      dismiss: "Dismiss"

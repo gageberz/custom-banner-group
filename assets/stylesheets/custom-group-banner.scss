@@ -1,0 +1,17 @@
+.custom-group-banner-t {
+  display: flex;
+  flex-direction: column;
+  margin: 0;
+
+  &.info-banner {
+    background-color: var(--tertiary-low);
+  }
+
+  &.success-banner {
+    background-color: var(--success-low);
+  }
+
+  &.danger-banner {
+    background-color: var(--danger-low);
+  }
+}

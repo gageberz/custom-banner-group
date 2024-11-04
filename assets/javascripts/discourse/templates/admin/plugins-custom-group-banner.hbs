@@ -1,0 +1,65 @@
+<div class="banner-settings">
+  <h3>Banner Configuration</h3>
+  <div class="banner-list">
+    {{#each this.banners as |banner index|}}
+      <div class="banner-item">
+        <h4>Banner {{index}}</h4>
+        <div class="banner-fields">
+          <div class="field">
+            <label>Group</label>
+            <ComboBox
+              @content={{this.availableGroups}}
+              @value={{banner.group}}
+              @onChange={{fn this.updateBanner index "group"}}
+              @options={{hash none="Select a group"}}
+            />
+          </div>
+
+          <div class="field">
+            <label>Message</label>
+            <DEditor
+              @value={{banner.message}}
+              @onChange={{fn this.updateBanner index "message"}}
+              @options={{this.richTextToolbarOptions}}
+              class="banner-message-input"
+            />
+          </div>
+
+          <div class="field">
+            <label>Style</label>
+            <ComboBox
+              @content={{this.availableStyles}}
+              @value={{banner.className}}
+              @onChange={{fn this.updateBanner index "className"}}
+              @options={{hash none="Select a style"}}
+            />
+          </div>
+
+          <div class="field checkbox-field">
+            <label>
+              <Input
+                @type="checkbox"
+                @checked={{banner.dismissable}}
+                @input={{fn this.updateBanner index "dismissable"}}
+              />
+              Dismissable
+            </label>
+          </div>
+
+          <DButton
+            @icon="trash-alt"
+            @action={{fn this.removeBanner index}}
+            @class="btn-danger"
+          />
+        </div>
+      </div>
+    {{/each}}
+  </div>
+
+  <DButton
+    @icon="plus"
+    @action={{this.addBanner}}
+    @label="Add Banner"
+    class="btn-primary"
+  />
+</div>
