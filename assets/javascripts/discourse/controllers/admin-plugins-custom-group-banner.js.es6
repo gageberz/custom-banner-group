@@ -113,9 +113,6 @@ export default class AdminPluginsCustomGroupBannerController extends Controller 
 
   @action
   async updateBanner(index, field, value) {
-  console.log(this.banners);
-  console.log(field);
-  console.log(value);
     const updatedBanners = [...this.banners];
     updatedBanners[index] = {
       ...updatedBanners[index],
