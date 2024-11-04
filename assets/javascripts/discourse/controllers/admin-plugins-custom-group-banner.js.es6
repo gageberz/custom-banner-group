@@ -30,12 +30,16 @@ export default class AdminPluginsCustomGroupBannerController extends Controller 
     try {
       const groups = await this.store.findAll('group');
       this.groups = groups.toArray();
+      console.log(this.groups);
     } catch (error) {
     }
   }
 
   get availableGroups() {
-    return this.groups.map((group) => ({ id: group.name, name: group.display_name }));
+    return this.groups.map((group) => ({
+      id: group.name,
+      name: group.full_name || group.display_name
+    }));
   }
 
   get availableStyles() {
